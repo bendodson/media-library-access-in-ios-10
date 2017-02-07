@@ -44,7 +44,10 @@ class ViewController: UIViewController {
         }
         
         let controller = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-        controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        controller.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        controller.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { (action) in
+            UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+        }))
         present(controller, animated: true, completion: nil)
     }
     
